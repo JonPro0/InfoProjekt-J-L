@@ -23,8 +23,8 @@ public class SortierGUI extends JFrame {
     private JButton bBogo;
     private JButton bGenerate;
     private JButton bReset;
-    private ArrayPanel pArray;
-    private SortierAusgabe ausgabe;
+    private final ArrayPanel pArray;
+    private final SortierAusgabe ausgabe;
     private int[] array;
     private Thread t;
     //ffprivate Scanner scanner = new Scanner((Readable) taAusgabe);
