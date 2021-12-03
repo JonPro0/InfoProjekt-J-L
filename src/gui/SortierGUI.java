@@ -27,12 +27,12 @@ public class SortierGUI extends JFrame {
     private final SortierAusgabe ausgabe;
     private int[] array;
     private Thread t;
-    //ffprivate Scanner scanner = new Scanner((Readable) taAusgabe);
     public SortierGUI() {
         array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
         ausgabe = new SortierAusgabe(taAusgabe);
         pArray = new ArrayPanel(array);
         POut.add(pArray);
+        Scanner scanner = new Scanner(System.in);
         bBubble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,7 +91,20 @@ public class SortierGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                ArrayGenerator Agenerate = new ArrayGenerator();
-               array = ArrayGenerator.randomNumbers(200, 1000);
+               String number = JOptionPane.showInputDialog("Wie groß soll das Array sein? (Zahl eingeben)");
+               boolean isnumeric = util.Util.isNumeric(number);
+               while(!isnumeric){
+                   number = JOptionPane.showInputDialog("Dies war keine Zahl!! Bitte Anzahl erneut eingeben");
+                   isnumeric = util.Util.isNumeric(number);
+               }
+               String max = JOptionPane.showInputDialog("Maximum für die Zahlen festlegen(Zahl eingeben)");
+               isnumeric = util.Util.isNumeric(max);
+                while(!isnumeric){
+                    max = JOptionPane.showInputDialog("Dies war keine Zahl!! Bitte Maximum erneut eingeben");
+                    isnumeric = util.Util.isNumeric(max);
+                }
+
+               array = ArrayGenerator.randomNumbers(Integer.parseInt(number), Integer.parseInt(max));
                pArray.setArray(array);
 
             }

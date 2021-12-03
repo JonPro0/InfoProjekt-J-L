@@ -35,10 +35,24 @@ public class SelectionSort {
             }
 
             Util.swap(a, i, min);
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
+            if(a.length < 40){
+                try{
+                    util.Util.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else if(a.length < 80){
+                try{
+                    util.Util.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try{
+                    util.Util.sleep(1);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
             }
             parray.setArray(a);
         }

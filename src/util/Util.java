@@ -7,4 +7,17 @@ public class Util {
         a[x] = a[y];
         a[y] = temp;
     }
+
+    public static boolean isNumeric(String strNum) {
+        try {
+            int zahl = Integer.parseInt(strNum);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void sleep(int n) throws InterruptedException {
+        Thread.sleep(n);
+    }
 }

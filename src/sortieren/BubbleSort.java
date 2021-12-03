@@ -32,10 +32,24 @@ public class BubbleSort {
                 if (a[j] > a[j + 1]) {
                     Util.swap(a, j, j + 1);
                     parray.setArray(a);
-                    try {
-                        Thread.sleep(1);
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt();
+                    if(a.length < 40){
+                        try{
+                            util.Util.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else if(a.length < 80){
+                        try{
+                            util.Util.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try{
+                            util.Util.sleep(1);
+                        } catch (InterruptedException e){
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
