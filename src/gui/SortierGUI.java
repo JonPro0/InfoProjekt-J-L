@@ -1,5 +1,8 @@
 package gui;
 
+import gui.Wettkampf.BubblearrayPanel;
+import gui.Wettkampf.WettkampfGUI;
+import gui.Wettkampf.sort.wBubbleSort;
 import sortieren.BogoSort;
 import sortieren.BubbleSort;
 import sortieren.InsertionSort;
@@ -24,6 +27,7 @@ public class SortierGUI extends JFrame {
     private JButton bBogo;
     private JButton bGenerate;
     private JButton bReset;
+    private JButton bWettkampf;
     private final ArrayPanel pArray;
     private final SortierAusgabe ausgabe;
     private int[] array;
@@ -140,10 +144,21 @@ public class SortierGUI extends JFrame {
             }
         });
 
+        bWettkampf.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                WettkampfGUI wgui = new WettkampfGUI();
+                wBubbleSort wbubble = new wBubbleSort(array, ausgabe);
+                BubblearrayPanel bubblearrayPanel = new BubblearrayPanel(array);
+                wbubble.sortieren(bubblearrayPanel, ausgabe);
+            }
+        });
+
 
 
         add(pMain);
         setSize(800, 600);
+        setResizable(false);
         setTitle("Mein Fenster 11G4");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);

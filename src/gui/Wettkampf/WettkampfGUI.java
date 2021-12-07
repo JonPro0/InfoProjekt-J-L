@@ -27,7 +27,9 @@ public class WettkampfGUI extends JFrame {
 
         add(pWMain);
         setSize(800, 600);
-        setTitle("Mein Fenster 11G4");
+        setResizable(false);
+        setTitle("Wettkampf");
+        setLocation(800, 0);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
