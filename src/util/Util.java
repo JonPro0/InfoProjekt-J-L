@@ -17,6 +17,13 @@ public class Util {
         return true;
     }
 
+    public static boolean validateNumber(int number){
+        if(number > 1200){
+            return false;
+        }
+        return true;
+    }
+
     public static void sleep(int n) throws InterruptedException {
         Thread.sleep(n);
     }
