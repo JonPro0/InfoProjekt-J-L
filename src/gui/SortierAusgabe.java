@@ -8,7 +8,7 @@ public class SortierAusgabe {
 
     public SortierAusgabe(JTextArea textArea) {
         this.textArea = textArea;
-        out = "Neue SortierAusgabe";
+        out = "Neue SortierAusgabe \n";
         this.textArea.setText(out);
     }
 

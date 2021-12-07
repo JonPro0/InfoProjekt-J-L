@@ -96,6 +96,7 @@ public class SortierGUI extends JFrame {
         bGenerate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                pArray.setBackground(Color.BLACK);
                ArrayGenerator Agenerate = new ArrayGenerator();
                String number = JOptionPane.showInputDialog("Wie groß soll das Array sein? (Zahl eingeben)");
                boolean isnumeric = util.Util.isNumeric(number);
@@ -104,15 +105,20 @@ public class SortierGUI extends JFrame {
                    isnumeric = util.Util.isNumeric(number);
                }
               //
-
-                if(Integer.parseInt(number) > 1200){
+                while (!util.Util.validateNumber(Integer.parseInt(number))) {
                     number = JOptionPane.showInputDialog("Deine Zahl war zu groß! Bitte Anzahl kleiner als 1200 eingeben");
                 }
+
+
+
                String max = JOptionPane.showInputDialog("Maximum für die Zahlen festlegen(Zahl eingeben)");
                isnumeric = util.Util.isNumeric(max);
                 while(!isnumeric){
                     max = JOptionPane.showInputDialog("Dies war keine Zahl!! Bitte Maximum erneut eingeben");
                     isnumeric = util.Util.isNumeric(max);
+                }
+                while(Integer.parseInt(max) > Integer.MAX_VALUE){
+                    max = JOptionPane.showInputDialog("Deine Zahl war zu groß! Bitte Maximum erneut eingeben");
                 }
 
                array = ArrayGenerator.randomNumbers(Integer.parseInt(number), Integer.parseInt(max));
