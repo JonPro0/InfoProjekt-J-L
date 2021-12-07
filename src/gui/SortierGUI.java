@@ -7,8 +7,10 @@ import sortieren.SelectionSort;
 import util.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class SortierGUI extends JFrame {
     private JPanel pMain;
@@ -39,6 +41,7 @@ public class SortierGUI extends JFrame {
                     public void run() {
                         BubbleSort bsort = new BubbleSort(array, ausgabe);
                         bsort.sortieren(pArray, ausgabe);
+                        pArray.setBackground(Color.green);
                     }
                 };
                 t.start();
@@ -52,6 +55,8 @@ public class SortierGUI extends JFrame {
                     public void run() {
                         InsertionSort Isort = new InsertionSort(array, ausgabe);
                         Isort.sortieren(pArray, ausgabe);
+                        pArray.setBackground(Color.green);
+
                     }
                 };
                 t.start();
@@ -65,6 +70,7 @@ public class SortierGUI extends JFrame {
                     public void run() {
                         SelectionSort Ssort = new SelectionSort(array, ausgabe);
                         Ssort.sortieren(pArray, ausgabe);
+                        pArray.setBackground(Color.green);
                     }
                 };
                 t.start();
@@ -78,6 +84,7 @@ public class SortierGUI extends JFrame {
                     public void run(){
                         BogoSort Bsort = new BogoSort(array, ausgabe);
                         Bsort.sortieren(pArray, ausgabe);
+                        pArray.setBackground(Color.green);
                     }
 
 
@@ -96,6 +103,11 @@ public class SortierGUI extends JFrame {
                    number = JOptionPane.showInputDialog("Dies war keine Zahl!! Bitte Anzahl erneut eingeben");
                    isnumeric = util.Util.isNumeric(number);
                }
+              //
+
+                if(Integer.parseInt(number) > 1200){
+                    number = JOptionPane.showInputDialog("Deine Zahl war zu groß! Bitte Anzahl kleiner als 1200 eingeben");
+                }
                String max = JOptionPane.showInputDialog("Maximum für die Zahlen festlegen(Zahl eingeben)");
                isnumeric = util.Util.isNumeric(max);
                 while(!isnumeric){
@@ -114,8 +126,9 @@ public class SortierGUI extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(t != null){
                     t.stop();
-                    ausgabe.println("Aktion abgebrochen, neuen Button drücken um wieder zu starten");
+                    ausgabe.println("Array zurückgesetzt! Neuen Button drücken, um wieder zu starten.");
                 }
+                pArray.setBackground(Color.BLACK);
                 array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
                 pArray.setArray(array);
             }

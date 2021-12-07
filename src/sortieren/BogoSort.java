@@ -29,23 +29,22 @@ public class BogoSort
         bogo(a, parray, ausgabe);
 
 
-        if(ausgabe != null){
-            ausgabe.println("Nachher: " + Arrays.toString(a));
-        }
+
     }
     void bogo(int[] arr, ArrayPanel parray2, SortierAusgabe ausgabe)
     {
-
-        //Keep a track of the number of shuffles
         int shuffle=1;
         for(;!isSorted(arr);shuffle++)
             shuffle(arr, parray2);
-        //Boast
-        System.out.println("This took "+shuffle+" shuffles.");
+        if(ausgabe != null){
+            ausgabe.println("Nachher: " + Arrays.toString(a));
+        }
+
+        ausgabe.println("This took "+shuffle+" shuffles.");
     }
     void shuffle(int[] arr, ArrayPanel parray3)
     {
-        //Standard Fisher-Yates shuffle algorithm
+
         int i=arr.length-1;
         while(i>0)
             swap(arr,i--,(int)(Math.random()*i), parray3);
