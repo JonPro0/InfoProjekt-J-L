@@ -5,7 +5,6 @@ import sortieren.BubbleSort;
 import sortieren.InsertionSort;
 import sortieren.SelectionSort;
 import util.*;
-import java.util.Scanner;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,12 +26,12 @@ public class SortierGUI extends JFrame {
     private final SortierAusgabe ausgabe;
     private int[] array;
     private Thread t;
+
     public SortierGUI() {
         array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
         ausgabe = new SortierAusgabe(taAusgabe);
         pArray = new ArrayPanel(array);
         POut.add(pArray);
-        Scanner scanner = new Scanner(System.in);
         bBubble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

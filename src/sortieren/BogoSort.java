@@ -57,7 +57,7 @@ public class BogoSort
         arr[j]=temp;
         parray4.setArray(a);
         try {
-            Thread.sleep(1);
+            Thread.sleep((long) 0.5);
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
