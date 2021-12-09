@@ -31,6 +31,7 @@ public class SortierGUI extends JFrame {
     private final ArrayPanel pArray;
     private final SortierAusgabe ausgabe;
     private int[] array;
+    private int[] reset = new int[]{};
     private Thread t;
 
     public SortierGUI() {
@@ -125,7 +126,8 @@ public class SortierGUI extends JFrame {
                     max = JOptionPane.showInputDialog("Deine Zahl war zu groß! Bitte Maximum erneut eingeben");
                 }
 
-               array = ArrayGenerator.randomNumbers(Integer.parseInt(number), Integer.parseInt(max));
+               reset = ArrayGenerator.randomNumbers(Integer.parseInt(number), Integer.parseInt(max));
+                array = reset;
                pArray.setArray(array);
 
             }
@@ -134,13 +136,18 @@ public class SortierGUI extends JFrame {
         bReset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(t != null){
+                if(t != null && reset.length <= 0){
                     t.stop();
                     ausgabe.println("Array zurückgesetzt! Neuen Button drücken, um wieder zu starten.");
+                    array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
+                    pArray.setArray(array);
+                } else if(t != null){
+                    t.stop();
+                    ausgabe.println("Aktion abgebrochen! Neuen Button drücken, um wieder zu starten.");
+                    pArray.setArray(array);
                 }
                 pArray.setBackground(Color.BLACK);
-                array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
-                pArray.setArray(array);
+
             }
         });
 
