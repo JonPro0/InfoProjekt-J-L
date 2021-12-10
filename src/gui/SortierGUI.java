@@ -42,6 +42,9 @@ public class SortierGUI extends JFrame {
         bBubble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(t!= null){
+                    t.stop();
+                }
                 t = new Thread() {
                     public void run() {
                         BubbleSort bsort = new BubbleSort(array, ausgabe);
@@ -56,6 +59,9 @@ public class SortierGUI extends JFrame {
         bInsertion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(t!= null){
+                    t.stop();
+                }
                 t = new Thread() {
                     public void run() {
                         InsertionSort Isort = new InsertionSort(array, ausgabe);
@@ -71,6 +77,9 @@ public class SortierGUI extends JFrame {
         bSelection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(t!= null){
+                    t.stop();
+                }
                 t = new Thread() {
                     public void run() {
                         SelectionSort Ssort = new SelectionSort(array, ausgabe);
@@ -85,6 +94,9 @@ public class SortierGUI extends JFrame {
         bBogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                if(t!= null){
+                    t.stop();
+                }
                 t = new Thread() {
                     public void run(){
                         BogoSort Bsort = new BogoSort(array, ausgabe);
@@ -154,7 +166,7 @@ public class SortierGUI extends JFrame {
         bWettkampf.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                WettkampfGUI wgui = new WettkampfGUI();
+                WettkampfGUI wgui = new WettkampfGUI(ausgabe);
                 wBubbleSort wbubble = new wBubbleSort(array, ausgabe);
                 BubblearrayPanel bubblearrayPanel = new BubblearrayPanel(array);
                 wbubble.sortieren(bubblearrayPanel, ausgabe);
@@ -171,7 +183,12 @@ public class SortierGUI extends JFrame {
         setVisible(true);
     }
 
+
+
+
     public static void main(String[] args) {
         new SortierGUI();
     }
+
+
 }
