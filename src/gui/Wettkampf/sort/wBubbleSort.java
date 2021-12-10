@@ -19,7 +19,7 @@ public class wBubbleSort {
     public wBubbleSort(int[] input, SortierAusgabe ausgabe) {
         a = input;
         this.ausgabe = ausgabe;
-        ausgabe.println("BubbleSort gestartet");
+        ausgabe.println("wBubbleSort gestartet");
     }
 
     public void sortieren(BubblearrayPanel parray, SortierAusgabe ausgabe) {

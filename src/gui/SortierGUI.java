@@ -167,9 +167,6 @@ public class SortierGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 WettkampfGUI wgui = new WettkampfGUI(ausgabe);
-                wBubbleSort wbubble = new wBubbleSort(array, ausgabe);
-                BubblearrayPanel bubblearrayPanel = new BubblearrayPanel(array);
-                wbubble.sortieren(bubblearrayPanel, ausgabe);
             }
         });
 

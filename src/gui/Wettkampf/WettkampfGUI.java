@@ -19,20 +19,16 @@ public class WettkampfGUI extends JFrame {
     private JTextArea selectionSortTextArea;
     private JTextArea insertionSortTextArea;
     private JTextArea bubbleSortTextArea;
+    private JButton bStart;
     private JButton bstart = new JButton();
 
     public WettkampfGUI(SortierAusgabe ausgabe) {
         int[] array = {3, 5,12, 5, 8, 78, 8};
         BubblearrayPanel bArray = new BubblearrayPanel(array);
-        pBubble.add(new BubblearrayPanel(array));
+        pBubble.add(bArray);
         pInsertion.add(new BubblearrayPanel(array));
         pSelection.add(new BubblearrayPanel(array));
         pBogo.add(new BubblearrayPanel(array));
-
-        pBubble.setVisible(false);
-        pInsertion.setVisible(false);
-        pSelection.setVisible(false);
-        pBogo.setVisible(false);
 
 
         bstart.setLocation(1200, 300);
@@ -41,18 +37,15 @@ public class WettkampfGUI extends JFrame {
         bstart.setVisible(true);
 
 
-        bstart.addActionListener(new ActionListener() {
+        bStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 new Thread() {
                  public void run(){
-                     bstart.setVisible(false);
-                     pBubble.setVisible(false);
-                     pInsertion.setVisible(false);
-                     pSelection.setVisible(false);
-                     pBogo.setVisible(false);
+                     bStart.setVisible(false);
                      wBubbleSort wb = new wBubbleSort(array, ausgabe);
                      wb.sortieren(bArray, ausgabe);
+                     bArray.setBackground(Color.green);
                  }
                 }.start();
             }
