@@ -1,19 +1,17 @@
 package gui.Wettkampf;
 
-import gui.SortierAusgabe;
-
 import javax.swing.*;
 import java.awt.*;
 
-public class BubblearrayPanel extends JPanel {
+public class WArrayPanel extends JPanel {
     private static final String uiClassID = "BubblearrayPanel";
     private int[] array;
     private int maxValue = 1;
 
-    public BubblearrayPanel() {
+    public WArrayPanel() {
         this(new int[]{3, 1, 12, 25, 20, 5, 30, 5, 4, 5, 2, 8, 10, 6, 7, 9});
     }
-    public BubblearrayPanel(int[] array) {
+    public WArrayPanel(int[] array) {
         super(true);
         setPreferredSize(new Dimension(400, 300));
         setBackground(Color.BLACK);

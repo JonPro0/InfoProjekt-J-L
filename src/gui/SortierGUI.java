@@ -1,8 +1,6 @@
 package gui;
 
-import gui.Wettkampf.BubblearrayPanel;
 import gui.Wettkampf.WettkampfGUI;
-import gui.Wettkampf.sort.wBubbleSort;
 import sortieren.BogoSort;
 import sortieren.BubbleSort;
 import sortieren.InsertionSort;
@@ -13,7 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
 
 public class SortierGUI extends JFrame {
     private JPanel pMain;
@@ -173,7 +170,7 @@ public class SortierGUI extends JFrame {
 
 
         add(pMain);
-        setSize(800, 600);
+        setSize(820, 620);
         setResizable(false);
         setTitle("Mein Fenster 11G4");
         setDefaultCloseOperation(EXIT_ON_CLOSE);

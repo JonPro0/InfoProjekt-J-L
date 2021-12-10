@@ -1,8 +1,7 @@
 package gui.Wettkampf.sort;
 
-import gui.ArrayPanel;
 import gui.SortierAusgabe;
-import gui.Wettkampf.BubblearrayPanel;
+import gui.Wettkampf.WArrayPanel;
 import util.Util;
 
 import java.util.Arrays;
@@ -22,7 +21,7 @@ public class wBubbleSort {
         ausgabe.println("wBubbleSort gestartet");
     }
 
-    public void sortieren(BubblearrayPanel parray, SortierAusgabe ausgabe) {
+    public void sortieren(WArrayPanel parray, SortierAusgabe ausgabe) {
         // Äußere Schleife, separiert unsortierten von sortiertem Bereich
         if (ausgabe != null) {
             ausgabe.println("Vorher: " + Arrays.toString(a));
