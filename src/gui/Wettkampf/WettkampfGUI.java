@@ -45,68 +45,60 @@ public class WettkampfGUI extends JFrame {
         bStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                bStart.setVisible(false);
                 new Thread() {
                     public void run(){
-                        bStart.setVisible(false);
+
                         wInsertionSort wInsertion = new wInsertionSort(array, ausgabe);
                         long startInsertion = System.currentTimeMillis();
                         wInsertion.sortieren(iArray, ausgabe);
                         iArray.setBackground(Color.green);
                         long endInsertion = System.currentTimeMillis();
 
-                        array = reset;
-                        System.out.println(Arrays.toString(array));
+                        ausgabe.println("InsertionSort: " + (endInsertion - startInsertion));
 
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        wSelectionSort wSelection = new wSelectionSort(array, ausgabe);
+                    }
+                }.start();
+                new Thread(){
+                    public void run(){
+                        wSelectionSort wSelection = new wSelectionSort(reset, ausgabe);
                         long startSelection = System.currentTimeMillis();
                         wSelection.sortieren(sArray, ausgabe);
                         sArray.setBackground(Color.green);
                         long endSelection = System.currentTimeMillis();
 
-                        array = reset1;
-                        System.out.println(Arrays.toString(array));
-
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        wBubbleSort wBubble = new wBubbleSort(array, ausgabe);
+                        ausgabe.println("SelectionSort: " + (endSelection - startSelection));
+                    }
+                }.start();
+                new Thread() {
+                    public void run(){
+                        wBubbleSort wBubble = new wBubbleSort(reset1, ausgabe);
                         long startBubble = System.currentTimeMillis();
                         wBubble.sortieren(bArray, ausgabe);
                         bArray.setBackground(Color.green);
                         long endBubble = System.currentTimeMillis();
 
-                        array = reset2;
-                        System.out.println(Arrays.toString(array));
-
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        wBogoSort wBogo = new wBogoSort(array, ausgabe);
+                        ausgabe.println("BubbleSort: "    + (endBubble    - startBubble));
+                    }
+                }.start();
+                new Thread(){
+                    public void run(){
+                        wBogoSort wBogo = new wBogoSort(reset2, ausgabe);
                         long startBogo = System.currentTimeMillis();
                         wBogo.sortieren(boArray, ausgabe);
                         boArray.setBackground(Color.green);
                         long endBogo = System.currentTimeMillis();
 
-                        ausgabe.println("InsertionSort: " + (endInsertion - startInsertion) + "\n"
-                                      + "SelectionSort: " + (endSelection - startSelection) + "\n"
-                                      + "BubbleSort: "    + (endBubble    - startBubble)    + "\n"
-                                      + "BogoSort: "      + ((endBogo      - startBogo) * 100)    );
+                        ausgabe.println("BogoSort: "      + ((endBogo      - startBogo) * 100)    );
                     }
                 }.start();
             }
         });
+
+        /* + "\n"
+                +  + "\n"
+                +     + "\n"
+                + */
 
         add(pWMain);
         setSize(820, 620);
