@@ -21,11 +21,15 @@ public class WettkampfGUI extends JFrame {
     private JTextArea bubbleSortTextArea;
     private JButton bStart;
     private JButton bstart = new JButton();
-    int[] array = new int[]{3, 5,12, 5, 8, 78, 8};
-    int[] reset =  new int[]{3, 5,12, 5, 8, 78, 8};
-    int[] reset1 = new int[]{3, 5, 12, 5, 8, 78, 8};
-    int[] reset2 = new int[]{3, 5, 12, 5, 8, 78, 8};
-    public WettkampfGUI(SortierAusgabe ausgabe) {
+    int[] array;
+    int[] reset;
+    int[] reset1;
+    int[] reset2;
+    public WettkampfGUI(SortierAusgabe ausgabe, int[] arr) {
+        this.array = arr;
+        this.reset = arr;
+        this.reset1 = arr;
+        this.reset2 = arr;
         WArrayPanel bArray = new WArrayPanel(array);
         pBubble.add(bArray);
         WArrayPanel iArray = new WArrayPanel(array);
@@ -89,7 +93,7 @@ public class WettkampfGUI extends JFrame {
                         boArray.setBackground(Color.green);
                         long endBogo = System.currentTimeMillis();
 
-                        ausgabe.println("BogoSort: "      + ((endBogo      - startBogo) * 100)    );
+                        ausgabe.println("BogoSort: "      + ((endBogo      - startBogo))    );
                     }
                 }.start();
             }

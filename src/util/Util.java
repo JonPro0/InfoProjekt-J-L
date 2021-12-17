@@ -18,7 +18,7 @@ public class Util {
     }
 
     public static boolean validateNumber(int number){
-        if(number > 1200){
+        if(number > 600){
             return false;
         }
         return true;

@@ -20,13 +20,10 @@ public class wBogoSort
     public wBogoSort(int[] input, SortierAusgabe ausgabe) {
         a = input;
         this.ausgabe = ausgabe;
-        ausgabe.println("BogoSort gestartet");
+
     }
 
     public void sortieren(WArrayPanel parray, SortierAusgabe ausgabe){
-        if(ausgabe != null){
-            ausgabe.println("Vorher: " + Arrays.toString(a));
-        }
         bogo(a, parray, ausgabe);
 
 
@@ -37,11 +34,9 @@ public class wBogoSort
         int shuffle=1;
         for(;!isSorted(arr);shuffle++)
             shuffle(arr, parray2);
-        if(ausgabe != null){
-            ausgabe.println("Nachher: " + Arrays.toString(a));
-        }
 
-        ausgabe.println("This took "+shuffle+" shuffles.");
+
+
     }
     void shuffle(int[] arr, WArrayPanel parray3)
     {
@@ -56,11 +51,7 @@ public class wBogoSort
         arr[i]=arr[j];
         arr[j]=temp;
         parray4.setArray(a);
-        try {
-            Thread.sleep((long) 0.5);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+
 
     }
     boolean isSorted(int[] arr)

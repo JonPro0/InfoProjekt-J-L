@@ -19,7 +19,7 @@ public class wInsertionSort {
     public wInsertionSort(int[] input, SortierAusgabe ausgabe) {
         a = input;
 
-        ausgabe.println("InsertionSort gestartet");
+
     }
 
     public void sortieren(WArrayPanel parray, SortierAusgabe ausgabe) {
@@ -33,9 +33,7 @@ public class wInsertionSort {
         // 1 2 3 10    /  7
         // 1 2 3 7     / 10
 
-        if (ausgabe != null){
-            ausgabe.println("Vorher" + Arrays.toString(a));
-        }
+
 
         for (int i = 1; i < a.length; i++) {
             int j = i;
@@ -43,31 +41,10 @@ public class wInsertionSort {
                 Util.swap(a, j, j - 1);
                 j -= 1;
                 parray.setArray(a);
-                if(a.length < 40){
-                    try{
-                        Util.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } else if(a.length < 80){
-                    try{
-                        Util.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    try{
-                        Util.sleep(1);
-                    } catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                }
             }
         }
 
-        if (ausgabe != null) {
-            ausgabe.println("Nachher" + Arrays.toString(a));
-        }
+
         // for (int i = 1; i < a.length; i++) {
         //     for (int j = i; j > 0; j--) {
         //         if (a[j] < a[j-1]) {

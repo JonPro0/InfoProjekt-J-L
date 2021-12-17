@@ -163,10 +163,8 @@ public class SortierGUI extends JFrame {
         bWettkampf.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                WettkampfGUI wgui = new WettkampfGUI(ausgabe);
-                //TODO (neue Reset methode in wgui,
-                //      array von sortiergui in wgui übergeben,
-                //      Thread.sleep von sort. verfahren verändern)
+                WettkampfGUI wgui = new WettkampfGUI(ausgabe, array);
+                //TODO Ausgabe fixxen
 
 
             }

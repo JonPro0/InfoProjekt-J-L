@@ -19,13 +19,11 @@ public class wSelectionSort {
     public wSelectionSort(int[] input, SortierAusgabe ausgabe) {
         a = input;
         this.ausgabe = ausgabe;
-        ausgabe.println("SelectionSort gestartet");
+
     }
 
     public void sortieren(WArrayPanel parray, SortierAusgabe ausgabe) {
-        if (ausgabe != null){
-            ausgabe.println("Vorher: " + Arrays.toString(a));
-        }
+
         for (int i = 0; i < a.length - 1; i++) {
             int min = i;
 
@@ -36,29 +34,8 @@ public class wSelectionSort {
             }
 
             Util.swap(a, i, min);
-            if(a.length < 40){
-                try{
-                    Util.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else if(a.length < 80){
-                try{
-                    Util.sleep(50);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try{
-                    Util.sleep(1);
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
             parray.setArray(a);
         }
-        if (ausgabe != null){
-            ausgabe.println("Nachher: " + Arrays.toString(a));
-        }
+
     }
 }
