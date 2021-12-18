@@ -29,6 +29,7 @@ public class SortierGUI extends JFrame {
     private final SortierAusgabe ausgabe;
     private int[] array;
     private int[] reset = new int[]{};
+    private boolean wreset;
     private Thread t;
 
     public SortierGUI() {
@@ -164,7 +165,7 @@ public class SortierGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 WettkampfGUI wgui = new WettkampfGUI(ausgabe, array);
-                //TODO Ausgabe fixxen
+                //TODO boolean benutzen für reset button
 
 
             }
