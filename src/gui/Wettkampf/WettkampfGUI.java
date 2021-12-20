@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class WettkampfGUI extends JFrame {
     private JPanel pWMain;
@@ -20,16 +19,19 @@ public class WettkampfGUI extends JFrame {
     private JTextArea insertionSortTextArea;
     private JTextArea bubbleSortTextArea;
     private JButton bStart;
+    private JButton bReset;
     private JButton bstart = new JButton();
     int[] array;
     int[] reset;
     int[] reset1;
     int[] reset2;
+    int[] neu;
     public WettkampfGUI(SortierAusgabe ausgabe, int[] arr) {
         this.array = arr;
         this.reset = arr;
         this.reset1 = arr;
         this.reset2 = arr;
+        this.neu = arr;
         WArrayPanel bArray = new WArrayPanel(array);
         pBubble.add(bArray);
         WArrayPanel iArray = new WArrayPanel(array);
@@ -49,7 +51,6 @@ public class WettkampfGUI extends JFrame {
         bStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                bStart.setVisible(false);
                 new Thread() {
                     public void run(){
 
@@ -96,13 +97,17 @@ public class WettkampfGUI extends JFrame {
                         ausgabe.println("BogoSort: "      + ((endBogo      - startBogo))    );
                     }
                 }.start();
+
             }
         });
 
-        /* + "\n"
-                +  + "\n"
-                +     + "\n"
-                + */
+        bReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+               new WettkampfGUI(ausgabe, arr);
+            }
+        });
 
         add(pWMain);
         setSize(820, 620);

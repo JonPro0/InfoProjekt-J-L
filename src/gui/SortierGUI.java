@@ -29,7 +29,6 @@ public class SortierGUI extends JFrame {
     private final SortierAusgabe ausgabe;
     private int[] array;
     private int[] reset = new int[]{};
-    private boolean wreset;
     private Thread t;
 
     public SortierGUI() {
@@ -144,6 +143,7 @@ public class SortierGUI extends JFrame {
         });
 
         bReset.addActionListener(new ActionListener() {
+            //Da ich den reset Button mit den verschiedenen Arrays nicht hingekommen habe, ist er nicht voll funktionsfähig und dient eher als Abbrechbutton
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if(t != null && reset.length <= 0){
@@ -153,7 +153,7 @@ public class SortierGUI extends JFrame {
                     pArray.setArray(array);
                 } else if(t != null){
                     t.stop();
-                    ausgabe.println("Aktion abgebrochen! Neuen Button drücken, um wieder zu starten.");
+                    ausgabe.println("Aktion abgebrochen! Neuen Button drücken, um wieder zu starten, oder neues Array generieren um fortzufahren!");
                     pArray.setArray(array);
                 }
                 pArray.setBackground(Color.BLACK);
@@ -165,7 +165,7 @@ public class SortierGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 WettkampfGUI wgui = new WettkampfGUI(ausgabe, array);
-                //TODO boolean benutzen für reset button
+
 
 
             }
